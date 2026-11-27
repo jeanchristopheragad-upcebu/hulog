@@ -1,0 +1,913 @@
+{
+  "version": 1,
+  "scenes": [
+    {
+      "id": 1,
+      "name": "THE FALL",
+      "time": "0:00–0:50",
+      "cues": [
+        {
+          "id": "cue-1",
+          "label": "BPO customer support dashboard",
+          "action": {
+            "type": "screen",
+            "value": "bpo"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-2",
+          "label": "Clock · 3:47 AM",
+          "action": {
+            "type": "clock",
+            "value": "3:47 AM"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-3",
+          "label": "Start agent typing",
+          "action": {
+            "type": "typing",
+            "sound": "keyboard"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-4",
+          "label": "Scholarship revocation email",
+          "action": {
+            "type": "email",
+            "value": "scholarship",
+            "sender": "University Scholarship Office",
+            "sound": "email"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-5",
+          "label": "Open university email",
+          "action": {
+            "type": "screen",
+            "value": "email"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-6",
+          "label": "Enrollment on hold",
+          "action": {
+            "type": "screen",
+            "value": "portal"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-7",
+          "label": "QuickPeso sponsored advertisement",
+          "action": {
+            "type": "screen",
+            "value": "social"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-8",
+          "label": "Open QuickPeso",
+          "action": {
+            "type": "screen",
+            "value": "loan"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-9",
+          "label": "Loan permissions request",
+          "action": {
+            "type": "loan",
+            "value": "permissions"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-10",
+          "label": "Approve loan",
+          "action": {
+            "type": "loan",
+            "value": "approved"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "THE COLLECTION",
+      "time": "0:50–2:00",
+      "cues": [
+        {
+          "id": "cue-11",
+          "label": "Payment reminder email",
+          "action": {
+            "type": "email",
+            "value": "payment",
+            "sender": "QuickPeso Collections",
+            "sound": "email"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-12",
+          "label": "Your payment is now overdue. Please settle your balance immediately.",
+          "action": {
+            "type": "message",
+            "value": "Your payment is now overdue. Please settle your balance immediately.",
+            "sender": "Unknown Number",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-13",
+          "label": "FINAL WARNING. Pay your outstanding balance TODAY.",
+          "action": {
+            "type": "message",
+            "value": "FINAL WARNING. Pay your outstanding balance TODAY.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-14",
+          "label": "Ngano wala pa man ka nibayad?",
+          "action": {
+            "type": "message",
+            "value": "Ngano wala pa man ka nibayad?",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-15",
+          "label": "You agreed to our terms and conditions.",
+          "action": {
+            "type": "message",
+            "value": "You agreed to our terms and conditions.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-16",
+          "label": "Ayaw mi’g tagoa. Bayad na!",
+          "action": {
+            "type": "message",
+            "value": "Ayaw mi’g tagoa. Bayad na!",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-17",
+          "label": "Incoming call",
+          "action": {
+            "type": "call",
+            "sound": "ringtone"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-18",
+          "label": "End call",
+          "action": {
+            "type": "endCall",
+            "sound": "ended"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-19",
+          "label": "3 MISSED CALLS",
+          "action": {
+            "type": "missed",
+            "count": 3,
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-20",
+          "label": "5 MISSED CALLS",
+          "action": {
+            "type": "missed",
+            "count": 5,
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-21",
+          "label": "12 MISSED CALLS",
+          "action": {
+            "type": "missed",
+            "count": 12,
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-22",
+          "label": "27 MISSED CALLS",
+          "action": {
+            "type": "missed",
+            "count": 27,
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-23",
+          "label": "43 MISSED CALLS",
+          "action": {
+            "type": "missed",
+            "count": 43,
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-24",
+          "label": "142 MISSED CALLS",
+          "action": {
+            "type": "missed",
+            "count": 142,
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-25",
+          "label": "Kung dili ka mubayad karon, tawagan namo imong pamilya!",
+          "action": {
+            "type": "message",
+            "value": "Kung dili ka mubayad karon, tawagan namo imong pamilya!",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-26",
+          "label": "We have access to your contacts.",
+          "action": {
+            "type": "message",
+            "value": "We have access to your contacts.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-27",
+          "label": "Kabalo mi asa ka nagpuyo.",
+          "action": {
+            "type": "message",
+            "value": "Kabalo mi asa ka nagpuyo.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-28",
+          "label": "WE KNOW WHERE YOU LIVE.",
+          "action": {
+            "type": "message",
+            "value": "WE KNOW WHERE YOU LIVE.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-29",
+          "label": "Dili ka makatago namo, Tala.",
+          "action": {
+            "type": "message",
+            "value": "Dili ka makatago namo, Tala.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-30",
+          "label": "Start notification overload",
+          "action": {
+            "type": "overload"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-31",
+          "label": "Stop all effects",
+          "action": {
+            "type": "stop"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "SOMEONE IS WATCHING",
+      "time": "2:00–2:55",
+      "cues": [
+        {
+          "id": "cue-32",
+          "label": "We are monitoring your account.",
+          "action": {
+            "type": "message",
+            "value": "We are monitoring your account.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-33",
+          "label": "YOUR CONTACTS WILL KNOW EVERYTHING.",
+          "action": {
+            "type": "message",
+            "value": "YOUR CONTACTS WILL KNOW EVERYTHING.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-34",
+          "label": "Open camera simulator",
+          "action": {
+            "type": "screen",
+            "value": "camera"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-35",
+          "label": "Ordinary social feed",
+          "action": {
+            "type": "screen",
+            "value": "social"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-36",
+          "label": "Lock phone",
+          "action": {
+            "type": "screen",
+            "value": "lock"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "NO PLACE TO HIDE",
+      "time": "2:55–4:05",
+      "cues": [
+        {
+          "id": "cue-37",
+          "label": "We know your location.",
+          "action": {
+            "type": "message",
+            "value": "We know your location.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-38",
+          "label": "QuickPeso application permissions",
+          "action": {
+            "type": "screen",
+            "value": "settings"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-39",
+          "label": "Too late.",
+          "action": {
+            "type": "message",
+            "value": "Too late.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-40",
+          "label": "Black phone screen",
+          "action": {
+            "type": "screen",
+            "value": "black"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "THERE’S NOTHING HERE",
+      "time": "4:05–5:10",
+      "cues": [
+        {
+          "id": "cue-41",
+          "label": "Night lock screen",
+          "action": {
+            "type": "screen",
+            "value": "lock"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-42",
+          "label": "Clock · 3:30 AM",
+          "action": {
+            "type": "clock",
+            "value": "3:30 AM"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-43",
+          "label": "Electric fan humming",
+          "action": {
+            "type": "sound",
+            "value": "fan",
+            "sound": "fan"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-44",
+          "label": "Metallic rattling",
+          "action": {
+            "type": "sound",
+            "value": "rattle",
+            "sound": "rattle"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-45",
+          "label": "Door banging",
+          "action": {
+            "type": "sound",
+            "value": "bang",
+            "sound": "bang"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-46",
+          "label": "Sudden silence",
+          "action": {
+            "type": "sound",
+            "value": "silence",
+            "sound": "silence"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-47",
+          "label": "Distant phone vibration",
+          "action": {
+            "type": "sound",
+            "value": "vibration",
+            "sound": "vibration"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "HULOG",
+      "time": "5:10–6:00",
+      "cues": [
+        {
+          "id": "cue-48",
+          "label": "142 missed calls · 89 unread messages",
+          "action": {
+            "type": "finalCounters"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-49",
+          "label": "We are watching you.",
+          "action": {
+            "type": "message",
+            "value": "We are watching you.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-50",
+          "label": "You cannot hide.",
+          "action": {
+            "type": "message",
+            "value": "You cannot hide.",
+            "sender": "UNKNOWN NUMBER",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-51",
+          "label": "Nak, nikaon na ka? Kumusta na man ka diha? Amping kanunay ha. Mingaw na mi nimo.",
+          "action": {
+            "type": "message",
+            "value": "Nak, nikaon na ka? Kumusta na man ka diha? Amping kanunay ha. Mingaw na mi nimo.",
+            "sender": "MAMA",
+            "sound": "notification"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-52",
+          "label": "Open conversation with MAMA",
+          "action": {
+            "type": "screen",
+            "value": "messages"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-53",
+          "label": "Type unsent message",
+          "action": {
+            "type": "draft",
+            "value": "type",
+            "sound": "keyboard"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-54",
+          "label": "Show full unsent message",
+          "action": {
+            "type": "draft",
+            "value": "full"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-55",
+          "label": "Delete unsent message",
+          "action": {
+            "type": "draft",
+            "value": "erase"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-56",
+          "label": "Fade to black",
+          "action": {
+            "type": "screen",
+            "value": "black",
+            "animation": "fade"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-57",
+          "label": "Reveal HULOG",
+          "action": {
+            "type": "screen",
+            "value": "title"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        },
+        {
+          "id": "cue-58",
+          "label": "Reveal final line",
+          "action": {
+            "type": "screen",
+            "value": "epilogue"
+          },
+          "target": "*",
+          "delay": 0,
+          "duration": 3500,
+          "auto": false
+        }
+      ]
+    }
+  ],
+  "emails": [
+    {
+      "id": "scholarship",
+      "sender": "University Scholarship Office",
+      "subject": "SCHOLARSHIP REVOCATION NOTICE",
+      "body": "Dear Tala,\n\nWe regret to inform you that your scholarship has been revoked due to failure to meet the required academic standards.\n\nAs a result, your scholarship benefits will be discontinued effective immediately.\n\nPlease coordinate with the Scholarship Office regarding your enrollment and outstanding financial obligations.\n\nSincerely,\n\nUniversity Scholarship Office"
+    },
+    {
+      "id": "payment",
+      "sender": "QuickPeso Collections",
+      "subject": "PAYMENT REMINDER",
+      "body": "Dear Borrower,\n\nYour loan repayment is due today.\n\nKindly settle your outstanding balance to avoid additional charges.\n\nThank you.\n\nQuickPeso Collections Department"
+    }
+  ],
+  "documents": [
+    {
+      "id": "payslip",
+      "title": "PAYSLIP",
+      "issuer": "Northline Customer Services",
+      "name": "Tala",
+      "reference": "PROP-PAY-0047",
+      "lines": [
+        {
+          "label": "Position",
+          "value": "Customer Service Representative"
+        },
+        {
+          "label": "Basic Pay",
+          "value": "₱12,000"
+        },
+        {
+          "label": "Total Deductions",
+          "value": "₱2,400"
+        },
+        {
+          "label": "NET PAY",
+          "value": "₱9,600"
+        }
+      ]
+    },
+    {
+      "id": "rent",
+      "title": "RENT STATEMENT",
+      "issuer": "Mabini Residences",
+      "name": "Tala",
+      "reference": "PROP-RENT-0021",
+      "lines": [
+        {
+          "label": "Monthly Rent",
+          "value": "₱5,000"
+        },
+        {
+          "label": "TOTAL DUE",
+          "value": "₱5,000"
+        }
+      ]
+    },
+    {
+      "id": "utilities",
+      "title": "UTILITIES STATEMENT",
+      "issuer": "Mabini Property Services",
+      "name": "Tala",
+      "reference": "PROP-UTIL-0021",
+      "lines": [
+        {
+          "label": "Electricity and Water",
+          "value": "₱900"
+        },
+        {
+          "label": "Internet",
+          "value": "₱600"
+        },
+        {
+          "label": "TOTAL DUE",
+          "value": "₱1,500"
+        }
+      ]
+    },
+    {
+      "id": "tuition",
+      "title": "TUITION STATEMENT",
+      "issuer": "San Isidro University",
+      "name": "Tala",
+      "reference": "PROP-STU-0021",
+      "lines": [
+        {
+          "label": "Outstanding Balance",
+          "value": "₱26,000"
+        },
+        {
+          "label": "Status",
+          "value": "UNPAID"
+        },
+        {
+          "label": "Enrollment",
+          "value": "ON HOLD"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "clock": "3:47 AM",
+    "phone": "+63 9XX XXX 0047",
+    "university": "San Isidro University",
+    "loanAmount": "₱12,000",
+    "dueDate": "December 04, 2026",
+    "notificationTime": "now",
+    "volume": 0.4,
+    "muted": false,
+    "speed": 1,
+    "fontSize": 16,
+    "reducedMotion": false,
+    "distortion": false,
+    "interval": 1500,
+    "overloadCount": 30,
+    "flash": 0,
+    "vibration": 100,
+    "fade": 2,
+    "theme": "ios",
+    "appearance": "light"
+  },
+  "sounds": {}
+}
