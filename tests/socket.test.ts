@@ -90,3 +90,38 @@ test("remote production flow, security and reconnect", async () => {
     await new Promise<void>((resolve) => server.close(() => resolve()));
   }
 });
+
+test("ending a session revokes access, cancels timers and leaves other sessions running", async () => {
+  const { http, io: server, sessions } = createProductionServer();
+  await new Promise<void>((resolve) => http.listen(0, "127.0.0.1", resolve));
+  const url = `http://127.0.0.1:${(http.address() as any).port}`;
+  const director = await connect(url);
+  const actor = await connect(url);
+  const other = await connect(url);
+  try {
+    const created = await ask(director, "create");
+    const separate = await ask(other, "create");
+    await ask(actor, "join", { code: created.view.code, role: "Phone" });
+    assert.equal((await ask(actor, "endSession")).ok, false);
+    const session = sessions.get(created.view.code)!;
+    let fired = false;
+    session.schedule(() => { fired = true; }, 100);
+    const ended = new Promise<any>((resolve) => actor.once("sessionEnded", resolve));
+    assert.equal((await ask(director, "endSession")).ok, true);
+    assert.equal((await ended).code, created.view.code);
+    assert.equal(sessions.has(created.view.code), false);
+    assert.equal(session.timers.size, 0);
+    assert.equal((await ask(director, "command", { action: { type: "call" } })).ok, false);
+    assert.equal((await ask(actor, "actor", { action: { type: "acceptCall" } })).ok, false);
+    assert.equal((await ask(actor, "join", { code: created.view.code, role: "Phone" })).ok, false);
+    assert.equal((await ask(director, "directorJoin", { code: created.view.code, token: created.token })).ok, false);
+    assert.equal((await ask(other, "command", { action: { type: "call" } })).ok, true);
+    assert.equal(sessions.has(separate.view.code), true);
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    assert.equal(fired, false);
+    assert.equal((await ask(director, "create")).ok, true);
+  } finally {
+    director.disconnect(); actor.disconnect(); other.disconnect();
+    await new Promise<void>((resolve) => server.close(() => resolve()));
+  }
+});

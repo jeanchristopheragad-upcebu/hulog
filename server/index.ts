@@ -26,6 +26,12 @@ export function createProductionServer() {
     const handle = (name: string, fn: (data: any) => unknown) =>
       socket.on(name, (data, ack) => {
         try {
+          if (session && !sessions.has(session.code)) {
+            session = undefined;
+            director = false;
+            deviceId = undefined;
+            delete socket.data.deviceId;
+          }
           if (++hits > 100) throw new Error("Too many requests");
           const result = fn(data);
           if (typeof ack === "function")
@@ -64,6 +70,14 @@ export function createProductionServer() {
       attach(s);
       director = true;
       return { view: s.view() };
+    });
+    handle("endSession", () => {
+      const s = control();
+      s.apply("*", { type: "stop" }, "Session ended");
+      sessions.delete(s.code);
+      io.to(s.code).emit("sessionEnded", { code: s.code });
+      io.in(s.code).socketsLeave(s.code);
+      return {};
     });
     handle("join", (data) => {
       const s = sessions.get(String(data.code).toUpperCase());
@@ -188,7 +202,7 @@ export function createProductionServer() {
     });
     socket.on("disconnect", () => {
       clearInterval(rate);
-      if (session && deviceId) {
+      if (session && sessions.has(session.code) && deviceId) {
         const others = [...io.sockets.sockets.values()].some(
           (s) => s.data.deviceId === deviceId,
         );

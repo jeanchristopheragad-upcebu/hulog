@@ -52,3 +52,15 @@ Requires a persistent Node process with WebSocket support; static hosting alone 
 - Removed 16 redundant root entries named ` copy`: duplicate README, codebase guide, HTML entry, package manifests, TypeScript/Vite/Playwright configs, build and dependency folders, and six empty copied folders.
 - Compared every copied file byte-for-byte (and symlink targets) against its canonical counterpart before removal; all matched. Canonical application files and dependencies remain in their original paths.
 - Validation after cleanup: `npm run build` passed (existing bundle-size and Zod annotation warnings); `npm test` passed all 7 tests. Tests required local IPC/socket permissions outside the sandbox.
+
+## Health check — 2026-11-27
+- Production build and TypeScript validation passed; all 7 core/integration tests and all 5 Chrome browser tests passed. Browser coverage includes synchronized director/actor workflows, laptop targeting, responsive layouts, offline reload and PDF/PNG downloads.
+- Existing non-blocking build warnings remain: Zod comment annotations and a main JavaScript bundle over 500 kB.
+- Repository housekeeping remains outstanding: no `.gitignore` exists, and Git tracks 17,178 files under `node_modules`, plus `dist`, test screenshots and test output. Routine builds/tests modify these tracked generated artifacts. Consider untracking generated files and adding ignore rules in a dedicated cleanup.
+- Restored generated artifacts after verification; no application code changed. This check did not repeat the dependency vulnerability audit or physical-device testing.
+
+## End session — 2026-11-27
+- Added a director-only `endSession` socket command and a confirmed End session button. The server stops effects/timers, removes the session, notifies participants and removes sockets from its broadcast room. Stale socket references cannot issue commands against removed sessions.
+- Connected clients stop local timers/audio/vibration, clear their role credentials and session view, and leave filming mode while preserving the actor screen. Offline participants cannot rejoin the invalidated code. Other sessions and the hosting service remain active.
+- Added integration coverage for authorization, timer cancellation, revoked commands/rejoin and isolation, plus browser coverage for confirmation cancellation, ending, actor setup and credential clearing.
+- Validation: production build passed, 8/8 core/integration tests passed, and 6/6 browser tests passed on rerun. The first browser run had a timing failure in the existing offline/reconnect workflow; the new end-session test passed both runs. Generated build/test artifacts were restored; rebuild before local production use and redeploy the source changes for hosted use.

@@ -194,3 +194,29 @@ test("document exports create actual PDF and PNG files", async ({ page }) => {
   await page.getByRole("button", { name: "Export PNG" }).click();
   expect((await png).suggestedFilename()).toBe("payslip.png");
 });
+
+test("director can cancel or confirm ending a session for every device", async ({ page, browser }) => {
+  await page.goto("/director");
+  await page.getByRole("button", { name: "Create production session", exact: true }).click();
+  await expect(page.locator(".session-strip")).toContainText("SESSION LIVE");
+  const code = await page.locator(".session-strip b").innerText();
+  const ctx = await browser.newContext();
+  try {
+    const actor = await ctx.newPage();
+    await actor.goto("/display?session=" + code);
+    await actor.getByRole("button", { name: "Connect device", exact: true }).click();
+    await expect(actor.getByText("Device connected · connection settings")).toBeVisible();
+    await actor.getByRole("button", { name: "Enter filming mode", exact: true }).click();
+    page.once("dialog", (dialog) => dialog.dismiss());
+    await page.getByRole("button", { name: "End session", exact: true }).click();
+    await expect(page.locator(".session-strip")).toContainText(code);
+    page.once("dialog", (dialog) => dialog.accept());
+    await page.getByRole("button", { name: "End session", exact: true }).click();
+    await expect(page.locator(".session-strip")).toContainText("No session connected");
+    await expect(actor.getByText("Connect a filming device", { exact: true })).toBeVisible();
+    expect(await page.evaluate(() => localStorage.getItem("hulog:director"))).toBe("null");
+    expect(await actor.evaluate(() => localStorage.getItem("hulog:actor"))).toBe("null");
+    await actor.getByRole("button", { name: "Connect device", exact: true }).click();
+    await expect(actor.getByText("Session not found. Check the code and server.", { exact: true })).toBeVisible();
+  } finally { await ctx.close(); }
+});

@@ -80,6 +80,7 @@ export default function App() {
   const [connected, setConnected] = useState(socket.connected);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
+  const [endingSession, setEndingSession] = useState(false);
   const [credentials, setCredentials] = useState<Credentials | null>(() =>
     read("director", null),
   );
@@ -123,6 +124,27 @@ export default function App() {
   useEffect(() => {
     save(isActor ? "actorState" : "preview", local);
   }, [local, isActor]);
+  useEffect(() => {
+    const ended = () => {
+      stopLocal();
+      navigator.vibrate?.(0);
+      setLocal((s) => ({ ...s, effect: undefined }));
+      setView(null);
+      setTarget("*");
+      if (isActor) {
+        save("actor", null);
+        setActorCredentials(null);
+      } else {
+        save("director", null);
+        setCredentials(null);
+      }
+      setFilming(false);
+      if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
+      setError("Session ended. Create or join a new session to continue.");
+    };
+    socket.on("sessionEnded", ended);
+    return () => { socket.off("sessionEnded", ended); };
+  }, [isActor, stopLocal]);
   useEffect(() => {
     const state = (v: SessionView) => {
       setView(v);
@@ -257,6 +279,17 @@ export default function App() {
       inform("Production session created. Share the actor link.");
     } catch (e) {
       report(e);
+    }
+  };
+  const endSession = async () => {
+    if (!window.confirm("End this session for everyone? This stops all effects and invalidates the session code. Save production first if you need a backup.")) return;
+    setEndingSession(true);
+    try {
+      await request("endSession");
+    } catch (e) {
+      report(e);
+    } finally {
+      setEndingSession(false);
     }
   };
   const restoreProduction = async (file?: File) => {
@@ -692,6 +725,11 @@ export default function App() {
                     <Plus size={16} />
                     {view ? "New session" : "Create production session"}
                   </button>
+                  {view && (
+                    <button onClick={endSession} disabled={!connected || endingSession}>
+                      {endingSession ? "Ending session…" : "End session"}
+                    </button>
+                  )}
                 </div>
               </div>
               <div className="session-strip">

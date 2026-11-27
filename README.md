@@ -38,6 +38,8 @@ Allow Node through the laptop firewall on your private network. Disable Wi-Fi cl
 
 ## Director operation
 
+- **End session** asks for confirmation, stops all effects and queued cues, and invalidates the session code for everyone. Connected actor displays leave filming mode and return to setup with their last screen retained. Save production first if you need a backup. Other sessions remain active; ending a session does not shut down the hosting service. Devices offline at the time cannot rejoin the ended code and must join a new session.
+
 - Select any of the six scenes in the sidebar. Click a cue to select it; click **FIRE CUE** or press **Space** to execute it. Left/right arrows select the previous/next cue. Double-click a cue to fire immediately.
 - **Play scene** schedules the full scene using each cue's delay and duration. A single fired cue marked automatic-next continues through subsequent automatic cues until a manual cue is reached.
 - **STOP ALL EFFECTS** / **Escape** cancels server and local scheduled cues, notification overload, ringing and sounds. It preserves the displayed messages and counters. It does not erase the take.
